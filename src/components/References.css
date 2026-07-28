@@ -1,0 +1,26 @@
+.references-section {
+  padding: 118px clamp(56px, 10vw, 156px);
+  background: var(--paper-2);
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 78px;
+  border-top: 1px solid var(--ink);
+}
+.references-heading { position: sticky; top: 118px; align-self: start; }
+.references-heading > span { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--flame); }
+.references-heading h2 { font-size: clamp(42px, 5vw, 72px); margin: 12px 0; }
+.references-heading p { max-width: 380px; }
+.references-list { display: flex; flex-direction: column; }
+.references-list article { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.references-list article > span { font-family: var(--font-mono); font-size: 13px; color: var(--flame); }
+.references-list h3 { font-size: 19px; margin: 0 0 6px; }
+.references-list h3 a { display: inline-flex; align-items: baseline; gap: 6px; }
+.references-list h3 a:hover { color: var(--flame); }
+.references-list p { font-family: var(--font-mono); font-size: 12px; margin: 0; color: var(--ink-soft); }
+.references-list small { display: block; color: var(--ink-mute); margin-top: 6px; font-size: 13px; }
+
+@media (max-width: 900px) {
+  .references-section { grid-template-columns: 1fr; padding: 88px 22px; gap: 34px; }
+  .references-heading { position: static; }
+  .references-list article { grid-template-columns: 40px 1fr; }
+}

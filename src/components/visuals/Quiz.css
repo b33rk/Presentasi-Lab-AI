@@ -1,0 +1,52 @@
+.quiz-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+}
+.quiz-head { padding: 20px 26px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--ink); }
+.quiz-head span { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--flame); }
+.quiz-head strong { font-family: var(--font-display); font-weight: 700; font-size: 22px; }
+.quiz-panel article { padding: 26px; border-bottom: 1px solid var(--line); }
+.quiz-panel article > span { font-family: var(--font-mono); font-size: 11px; color: var(--ink-mute); }
+.quiz-panel h3 { font-size: 22px; max-width: 760px; margin: 8px 0 18px; }
+.quiz-options { display: flex; gap: 9px; flex-wrap: wrap; }
+.quiz-options button {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  border-radius: 2px;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: 0.15s;
+}
+.quiz-options button:hover:not(:disabled) { background: var(--ink); color: var(--paper); }
+.quiz-options button.correct { border-color: var(--forest); background: var(--forest); color: var(--paper); }
+.quiz-options button.wrong { border-color: var(--flame-deep); background: var(--flame-deep); color: var(--paper); }
+.quiz-options button.ghost { opacity: 0.72; }
+.quiz-panel article > p { font-size: 14px; margin-bottom: 0; font-family: var(--font-body); }
+.quiz-panel article > p strong { color: var(--ink); }
+.quiz-result {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 3px;
+  border: 1px solid var(--ink);
+  background: var(--paper-2);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.quiz-result strong { font-family: var(--font-display); font-weight: 600; font-size: 20px; }
+.quiz-result span { color: var(--ink-soft); font-size: 14px; }
+
+@media (max-width: 620px) {
+  .quiz-panel article { padding: 22px 18px; }
+  .quiz-options { flex-direction: column; }
+  .quiz-options button { width: 100%; }
+}

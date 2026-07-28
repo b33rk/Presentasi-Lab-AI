@@ -1,0 +1,6 @@
+/* Global stylesheet entry. Order matters: tokens -> base -> layout.
+   Component-specific CSS is colocated and imported from each component's .jsx. */
+@import './tokens.css';
+@import './base.css';
+@import './layout.css';
+@import './content.css';

@@ -1,0 +1,38 @@
+/* ============================================================================
+   Inline copy blocks that live inside a <Section>'s prose (App.jsx), not in a
+   visual component: domain pills, LLM fit columns, research/production split.
+   ========================================================================== */
+
+/* Deep-learning domain pills */
+.domain-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px; }
+.domain-pills span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 7px 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: var(--paper);
+}
+.domain-pills .icon { color: var(--flame); }
+
+/* LLM: fits vs doesn't-fit columns */
+.fit-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 0; }
+.fit-columns > div { padding: 18px; border: 1px solid var(--ink); border-radius: 3px; background: var(--paper); display: flex; flex-direction: column; gap: 7px; }
+.fit-columns strong { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--section-accent); }
+.fit-columns span { font-size: 14px; color: var(--ink-soft); }
+
+/* Production: research vs production framing */
+.research-production { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.research-production > div { padding: 17px; border: 1px solid var(--ink); border-radius: 3px; background: var(--paper); }
+.research-production span { font-family: var(--font-mono); font-size: 10px; color: var(--section-accent); text-transform: uppercase; letter-spacing: 0.1em; }
+.research-production strong { display: block; font-family: var(--font-display); font-weight: 500; line-height: 1.25; margin: 6px 0; }
+.research-production p { font-size: 13px; margin: 0; }
+
+@media (max-width: 620px) {
+  .fit-columns, .research-production { grid-template-columns: 1fr; }
+}

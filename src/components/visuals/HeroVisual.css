@@ -1,0 +1,90 @@
+.plate-scene {
+  width: min(540px, 46vw);
+  aspect-ratio: 1;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.plate-ring {
+  position: absolute;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+}
+.ring-one { width: 82%; height: 82%; }
+.ring-two { width: 56%; height: 56%; border-style: dashed; border-color: var(--flame); opacity: 0.55; }
+
+/* Faint drafting crosshair through the plate */
+.plate-crosshair span {
+  position: absolute;
+  background: var(--line-strong);
+  opacity: 0.5;
+}
+.plate-crosshair span:first-child { left: 9%; right: 9%; top: 50%; height: 1px; }
+.plate-crosshair span:last-child { top: 9%; bottom: 9%; left: 50%; width: 1px; }
+
+.plate-core {
+  position: absolute;
+  width: 132px; height: 132px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  z-index: 2;
+}
+.plate-core-mark {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 52px;
+  line-height: 0.9;
+  color: var(--flame);
+  letter-spacing: -0.02em;
+}
+.plate-core em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ink-mute);
+}
+
+.plate-node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 96px; height: 96px;
+  border-radius: 3px;
+  background: var(--panel);
+  border: 1px solid var(--ink);
+  box-shadow: var(--shadow-soft);
+  color: var(--ink);
+}
+.plate-node:nth-child(even) { color: var(--blue); }
+.plate-node-no {
+  position: absolute;
+  top: 6px; left: 8px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--ink-mute);
+}
+.plate-node small {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .plate-scene { width: min(540px, 88vw); }
+}

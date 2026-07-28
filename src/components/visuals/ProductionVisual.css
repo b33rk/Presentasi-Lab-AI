@@ -1,0 +1,59 @@
+.production-map { position: relative; width: 88%; height: 500px; display: grid; place-items: center; }
+.prod-stage-label {
+  position: absolute; top: 0; left: 50%;
+  transform: translateX(-50%);
+  display: flex; gap: 12px; align-items: center; white-space: nowrap;
+  font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute);
+}
+.prod-stage-label i { font-style: normal; color: var(--flame); }
+
+.model-core {
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  box-shadow: 5px 5px 0 var(--flame);
+  z-index: 2;
+}
+.model-core span { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; color: var(--flame); }
+.model-core strong { font-family: var(--font-display); font-weight: 600; font-size: 18px; }
+
+.prod-node {
+  position: absolute;
+  width: 108px; height: 82px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  color: var(--blue);
+}
+.prod-node strong { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink); }
+.n1 { top: 62px; left: 7%; }
+.n2 { top: 50px; right: 9%; }
+.n3 { top: 205px; left: 1%; }
+.n4 { top: 205px; right: 1%; }
+.n5 { bottom: 52px; left: 8%; }
+.n6 { bottom: 42px; right: 9%; }
+.n7 { bottom: 6px; left: 39%; }
+.n8 { top: 80px; left: 42%; }
+
+.zoom-button {
+  position: absolute; bottom: -3px; right: 0;
+  border: 1px solid var(--ink); border-radius: 2px; background: var(--paper);
+  padding: 10px 14px; cursor: pointer;
+  font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em;
+  display: inline-flex; align-items: center; gap: 8px; z-index: 3;
+  transition: 0.15s;
+}
+.zoom-button:hover { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 900px) { .production-map { width: 95%; } }
+@media (max-width: 620px) {
+  .production-map { height: 560px; }
+  .prod-stage-label { top: 3px; }
+  .model-core { width: 180px; height: 180px; }
+  .prod-node { width: 86px; height: 70px; }
+  .n1 { left: 0; } .n2 { right: 0; } .n3 { left: 0; top: 190px; } .n4 { right: 0; top: 190px; }
+  .n5 { left: 0; bottom: 80px; } .n6 { right: 0; bottom: 80px; } .n7 { left: 36%; bottom: 25px; } .n8 { left: 36%; top: 70px; }
+}

@@ -1,0 +1,80 @@
+.pathfinding-panel {
+  width: 88%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+  align-items: end;
+}
+.visual-toolbar { grid-column: 1 / -1; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.visual-toolbar button {
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  border-radius: 2px;
+  padding: 7px 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.15s;
+}
+.visual-toolbar button.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.visual-toolbar .replay { margin-left: auto; }
+
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 3px;
+  aspect-ratio: 1;
+  padding: 12px;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+}
+.grid-cell {
+  display: grid;
+  place-items: center;
+  border-radius: 1px;
+  background: var(--paper-2);
+  color: var(--ink);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.grid-cell.wall {
+  background: repeating-linear-gradient(45deg, var(--ink) 0 2px, transparent 2px 5px), var(--ink-soft);
+}
+.grid-cell.visited:not(.wall) { background: color-mix(in srgb, var(--blue) 26%, var(--paper)); }
+.grid-cell.path:not(.wall) { background: var(--flame); color: var(--paper); }
+.grid-cell.start, .grid-cell.goal { background: var(--paper) !important; color: var(--flame); box-shadow: inset 0 0 0 1.5px var(--flame); }
+
+.search-stat {
+  width: 128px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+}
+.search-stat span, .search-stat em {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ink-mute);
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.search-stat strong { font-family: var(--font-display); font-weight: 700; font-size: 26px; margin: 5px 0; }
+.search-stat em { color: var(--flame); }
+
+@media (max-width: 900px) {
+  .pathfinding-panel { width: 92%; grid-template-columns: 1fr; }
+  .search-stat { width: 100%; display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: center; }
+}
+@media (max-width: 620px) {
+  .pathfinding-panel { width: 94%; }
+  .path-grid { padding: 8px; gap: 2px; }
+}

@@ -1,0 +1,54 @@
+/* ============================================================================
+   Engineering Almanac — design tokens
+   Typography : Fraunces (display serif) · Newsreader (text serif) · IBM Plex Mono (labels)
+   Palette    : warm cream paper, warm near-black ink, vermilion flame + ink-blue
+   Single theme (no toggle).
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+
+  /* Paper stack (light -> deep) */
+  --paper: #F2ECE1;
+  --paper-2: #ECE4D5;
+  --paper-3: #E4DAC7;
+  --panel: #F7F2E9;
+
+  /* Ink stack */
+  --ink: #211C15;
+  --ink-soft: #574E3E;
+  --ink-mute: #897D66;
+
+  /* Accents — two-color riso */
+  --flame: #DE3C1E;
+  --flame-deep: #B72E12;
+  --blue: #2B4B7E;
+  --blue-soft: #3E6299;
+  --forest: #3C6B47;
+
+  /* Structure */
+  --line: #CDBFA3;
+  --line-soft: #DDD1B8;
+  --line-strong: #A99A79;
+
+  /* Per-section accent — repointed by .accent-* classes */
+  --section-accent: var(--flame);
+
+  /* Type families */
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+  --font-body: 'Newsreader', 'Georgia', serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+  --shadow: 0 24px 60px -32px rgba(43, 33, 15, 0.45);
+  --shadow-soft: 0 14px 32px -22px rgba(43, 33, 15, 0.4);
+  --radius: 4px;
+}
+
+/* Accent assignments: alternate flame / ink-blue for a two-color rhythm. */
+.accent-blue { --section-accent: var(--blue); }
+.accent-cyan { --section-accent: var(--flame); }
+.accent-violet { --section-accent: var(--blue); }
+.accent-magenta { --section-accent: var(--flame); }
+.accent-warning { --section-accent: var(--flame-deep); }
+.accent-success { --section-accent: var(--forest); }

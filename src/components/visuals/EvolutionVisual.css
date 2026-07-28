@@ -1,0 +1,74 @@
+.evolution-panel {
+  width: 86%;
+  height: 82%;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.population {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  height: 350px;
+  padding: 18px 12px;
+  border-bottom: 1.5px solid var(--ink);
+}
+.candidate {
+  width: 56px;
+  min-height: 20%;
+  max-height: 95%;
+  border-radius: 3px 3px 0 0;
+  background: var(--flame);
+  border: 1px solid var(--ink);
+  border-bottom: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.candidate:nth-child(even) { background: var(--blue); }
+.candidate > span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 9px;
+  color: var(--paper);
+}
+.candidate-pattern {
+  position: absolute;
+  inset: 36px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+}
+.candidate-pattern i { display: block; height: 3px; border-radius: 1px; background: color-mix(in srgb, var(--paper) 65%, transparent); transition: 0.3s; }
+
+.generation-control { display: flex; justify-content: space-between; align-items: center; }
+.generation-control button {
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  padding: 11px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.15s;
+}
+.generation-control button:hover { background: var(--flame); border-color: var(--flame); }
+.generation-control > div { display: flex; align-items: center; gap: 12px; }
+.generation-control > div span { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-mute); }
+.generation-control > div strong { font-family: var(--font-display); font-weight: 700; font-size: 30px; }
+.visual-note { font-family: var(--font-body); font-style: italic; font-size: 13px; text-align: center; margin: 0; color: var(--ink-soft); }
+
+@media (max-width: 620px) {
+  .evolution-panel { width: 92%; }
+  .population { gap: 7px; height: 300px; }
+  .candidate { width: 40px; }
+}

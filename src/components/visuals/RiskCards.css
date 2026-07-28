@@ -1,0 +1,27 @@
+.risk-grid { width: 86%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.risk-grid article {
+  min-height: 218px;
+  padding: 22px;
+  border: 1px solid var(--ink);
+  border-radius: 3px;
+  background: var(--paper);
+}
+.risk-icon {
+  width: 54px; height: 54px;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border: 1px solid currentColor;
+}
+.r0 { color: var(--flame-deep); }
+.r1 { color: var(--blue); }
+.r2 { color: var(--flame); }
+.r3 { color: var(--forest); }
+.risk-grid h3 { font-size: 24px; margin-bottom: 8px; }
+.risk-grid p { font-size: 14px; margin: 0; }
+
+@media (max-width: 620px) {
+  .risk-grid { grid-template-columns: 1fr; width: 90%; padding: 20px 0; }
+  .risk-grid article { min-height: 180px; }
+}

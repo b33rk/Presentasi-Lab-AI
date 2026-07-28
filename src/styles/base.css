@@ -1,0 +1,215 @@
+/* ============================================================================
+   Base reset, typography, and shared primitives (buttons, eyebrow, quotes,
+   citation, learn-more). Component-specific rules live beside their components.
+   ========================================================================== */
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.62;
+  overflow-x: hidden;
+  /* Warm ledger grid + faint paper grain for the drafting-paper feel. */
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 46px 46px, 46px 46px;
+  background-position: -1px -1px;
+}
+
+/* Grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+button { color: inherit; }
+::selection { background: var(--flame); color: var(--paper); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ---- Headings ---------------------------------------------------------- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.02;
+  margin-top: 0;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+h1 { font-weight: 900; }
+h2 { font-size: clamp(38px, 4.4vw, 66px); font-weight: 600; margin-bottom: 26px; }
+h3 { letter-spacing: -0.01em; }
+p { color: var(--ink-soft); }
+
+.lead {
+  font-size: clamp(19px, 1.7vw, 23px);
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+/* Editorial pull-quote: hanging vermilion rule + display serif italic. */
+blockquote {
+  margin: 34px 0 24px;
+  padding: 6px 0 6px 26px;
+  border-left: 2px solid var(--section-accent);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(23px, 2.1vw, 34px);
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+/* ---- Eyebrow (section kicker) ------------------------------------------ */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--section-accent);
+  font-weight: 600;
+  margin-bottom: 22px;
+}
+.eyebrow > span {
+  display: grid;
+  place-items: center;
+  min-width: 30px;
+  height: 24px;
+  padding: 0 7px;
+  border: 1px solid var(--section-accent);
+  border-radius: 2px;
+  letter-spacing: 0.08em;
+  color: var(--section-accent);
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+.primary-button, .secondary-button {
+  height: 50px;
+  border-radius: 2px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.primary-button {
+  background: var(--flame);
+  color: var(--paper);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.primary-button:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.secondary-button {
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+}
+.secondary-button:hover { background: var(--ink); color: var(--paper); }
+.text-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 2px;
+}
+.text-link:hover { color: var(--flame); border-color: var(--flame); }
+
+/* ---- Citation marker + popover ----------------------------------------- */
+.citation-wrap { display: inline-block; position: relative; vertical-align: super; line-height: 1; }
+.citation {
+  border: 1px solid var(--flame);
+  background: transparent;
+  color: var(--flame);
+  border-radius: 2px;
+  padding: 2px 5px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.citation:hover { background: var(--flame); color: var(--paper); }
+.citation-popover {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 262px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  z-index: 20;
+  font-family: var(--font-body);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+.citation-popover strong { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); }
+.citation-popover small { color: var(--ink-mute); }
+.citation-popover a { color: var(--flame); font-weight: 600; margin-top: 5px; font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* ---- Learn-more disclosure --------------------------------------------- */
+.learn-more { border-top: 1px solid var(--line); margin-top: 24px; }
+.learn-more > button {
+  border: 0;
+  background: none;
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--ink);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+}
+.learn-more > button:hover { color: var(--flame); }
+.learn-content { overflow: hidden; }
+.learn-content p { margin: 0 0 18px; font-size: 15px; color: var(--ink-soft); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

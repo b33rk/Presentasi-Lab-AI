@@ -1,0 +1,54 @@
+.layers-panel { width: 84%; display: flex; flex-direction: column; gap: 22px; }
+.layer-scene {
+  height: 350px;
+  border: 1.5px solid var(--ink);
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 25px, var(--line-soft) 25px 26px),
+    repeating-linear-gradient(90deg, transparent 0 25px, var(--line-soft) 25px 26px),
+    var(--paper);
+}
+.bike { width: 82%; height: 82%; display: grid; place-items: center; }
+
+.pixel-bike { width: 240px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; }
+.pixel-bike i { aspect-ratio: 1; background: var(--paper-3); border-radius: 1px; }
+.pixel-bike i.on { background: var(--blue); }
+
+.bike svg { width: 82%; fill: none; stroke: var(--blue); stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+.object-bike { stroke: var(--flame) !important; stroke-width: 4 !important; }
+.object-bike circle[fill] { fill: var(--flame); }
+
+.part-bike { width: 300px; height: 180px; position: relative; }
+.part-bike span { position: absolute; display: block; }
+.wheel { width: 84px; height: 84px; border: 6px solid var(--blue); border-radius: 50%; bottom: 12px; }
+.w1 { left: 15px; }
+.w2 { right: 15px; }
+.frame { left: 90px; top: 58px; width: 100px; height: 75px; border-left: 7px solid var(--ink); border-bottom: 7px solid var(--ink); transform: skewX(-22deg); }
+.seat { width: 42px; height: 7px; border-radius: 2px; background: var(--flame); left: 112px; top: 50px; }
+.handle { height: 62px; width: 40px; border-top: 7px solid var(--flame); border-right: 7px solid var(--flame); right: 72px; top: 42px; }
+
+.layers-panel input { width: 100%; accent-color: var(--flame); }
+.layer-labels { display: flex; justify-content: space-between; }
+.layer-labels button {
+  border: 0;
+  background: none;
+  color: var(--ink-mute);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.layer-labels button span { font-size: 9px; }
+.layer-labels button.active { color: var(--flame); font-weight: 600; }
+.layer-labels button.active span { color: var(--flame); }
+
+@media (max-width: 620px) {
+  .layer-scene { height: 290px; }
+  .pixel-bike { width: 210px; }
+}

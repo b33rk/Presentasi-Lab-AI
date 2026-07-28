@@ -1,0 +1,190 @@
+/* ============================================================================
+   Page chrome + section scaffolding: topbar, progress rail, story-section grid,
+   visual stage, footer, toast.
+   ========================================================================== */
+
+/* ---- Topbar ------------------------------------------------------------ */
+.topbar {
+  position: fixed;
+  left: 0; right: 0; top: 0;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(20px, 4vw, 56px);
+  z-index: 100;
+  background: color-mix(in srgb, var(--paper) 82%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  background: var(--flame);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 15px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.top-actions { display: flex; align-items: center; gap: 10px; }
+.share-button {
+  border: 1px solid var(--ink);
+  background: transparent;
+  height: 38px;
+  border-radius: 2px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  transition: 0.18s ease;
+}
+.share-button:hover { background: var(--ink); color: var(--paper); }
+
+/* ---- Progress rail ----------------------------------------------------- */
+.progress-rail {
+  position: fixed;
+  right: 22px; top: 50%;
+  transform: translateY(-50%);
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.progress-label { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.1; }
+.progress-label strong { font-family: var(--font-display); font-weight: 700; font-size: 20px; }
+.progress-label span { font-family: var(--font-mono); font-size: 9px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.12em; }
+.progress-line { height: 250px; width: 2px; background: var(--line-strong); position: relative; overflow: hidden; }
+.progress-line span { position: absolute; inset: 0; background: var(--flame); transform-origin: top; }
+.progress-rail nav { display: flex; flex-direction: column; gap: 10px; }
+.progress-rail nav a { position: relative; width: 14px; height: 14px; display: grid; place-items: center; }
+.progress-rail nav a > span { width: 6px; height: 6px; background: var(--line-strong); border-radius: 1px; transition: 0.2s; }
+.progress-rail nav a.active > span { width: 13px; height: 13px; background: var(--flame); box-shadow: 1px 1px 0 var(--ink); }
+.progress-rail nav em {
+  position: absolute; right: 24px; top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  opacity: 0; pointer-events: none; white-space: nowrap;
+  background: var(--panel); border: 1px solid var(--ink); border-radius: 2px;
+  padding: 4px 9px; font-family: var(--font-mono); font-size: 10px; font-style: normal;
+  text-transform: uppercase; letter-spacing: 0.06em; transition: 0.2s;
+}
+.progress-rail nav a:hover em { opacity: 1; transform: translateY(-50%) translateX(0); }
+
+/* ---- Story section grid ------------------------------------------------ */
+.story-section {
+  min-height: 100svh;
+  padding: clamp(96px, 12vh, 148px) clamp(56px, 8vw, 128px);
+  display: grid;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(440px, 1.18fr);
+  gap: clamp(44px, 6vw, 104px);
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  isolation: isolate;
+}
+.story-section:nth-of-type(even) { background: color-mix(in srgb, var(--paper-2) 55%, transparent); }
+.section-copy { max-width: 680px; }
+
+/* Corner registration ticks — drafting-plate detail on each visual stage. */
+.visual-stage {
+  min-height: 580px;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background:
+    repeating-linear-gradient(0deg, transparent 0 21px, var(--line-soft) 21px 22px),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.visual-stage::before,
+.visual-stage::after {
+  content: "";
+  position: absolute;
+  width: 14px; height: 14px;
+  border: 1.5px solid var(--section-accent);
+  z-index: 3;
+}
+.visual-stage::before { top: 10px; left: 10px; border-right: 0; border-bottom: 0; }
+.visual-stage::after { bottom: 10px; right: 10px; border-left: 0; border-top: 0; }
+
+/* ---- Footer ------------------------------------------------------------ */
+footer {
+  padding: 34px clamp(40px, 8vw, 128px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-mute);
+}
+footer strong { color: var(--ink); }
+footer a:hover { color: var(--flame); }
+
+/* ---- Toast ------------------------------------------------------------- */
+.toast {
+  position: fixed;
+  z-index: 200;
+  left: 50%; bottom: 28px;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: 2px;
+  padding: 11px 18px;
+  box-shadow: var(--shadow);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+}
+
+/* ---- Responsive -------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .progress-label { display: none; }
+  .story-section { padding-left: 48px; padding-right: 56px; gap: 42px; }
+}
+@media (max-width: 900px) {
+  .topbar { height: 60px; padding: 0 18px; }
+  .brand > span:last-child { display: none; }
+  .progress-rail { left: 0; right: 0; top: auto; bottom: 0; transform: none; height: 5px; display: block; background: var(--line-strong); }
+  .progress-line { width: 100%; height: 5px; }
+  .progress-line span { transform-origin: left; }
+  .progress-rail nav, .progress-label { display: none; }
+  .story-section { grid-template-columns: 1fr; min-height: auto; padding: 96px 22px 72px; gap: 36px; }
+  .section-copy { max-width: none; }
+  .visual-stage { min-height: 520px; }
+}
+@media (max-width: 620px) {
+  body { font-size: 17px; }
+  h2 { font-size: 37px; }
+  .lead { font-size: 18px; }
+  blockquote { font-size: 24px; }
+  .visual-stage { min-height: 480px; }
+  footer { flex-direction: column; gap: 10px; text-align: center; }
+  .citation-popover { left: auto; right: 0; width: 220px; }
+}
