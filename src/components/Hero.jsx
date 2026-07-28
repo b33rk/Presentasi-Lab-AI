@@ -36,14 +36,7 @@ export default function Hero() {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="hero-visual"
-        initial={{ opacity: 0, scale: 0.94 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <HeroVisual />
-      </motion.div>
+
 
       <div className="hero-index">
         {HERO_NODES.map((node, i) => (
