@@ -74,3 +74,7 @@
   .metric-switch { grid-column: auto; }
   .output-metrics { grid-column: auto; grid-template-columns: 1fr; }
 }
+@media (max-width: 400px) {
+  .learning-core { width: 130px; height: 130px; }
+  .learning-core i { width: 152px; height: 152px; }
+}

@@ -35,5 +35,9 @@
 
 @media (max-width: 620px) {
   .sorter-panel { width: 92%; }
+  .task-card strong { font-size: 26px; }
   .fit-options { grid-template-columns: 1fr; }
+}
+@media (hover: none) {
+  .fit-options button:active:not(:disabled) { background: var(--ink); color: var(--paper); }
 }

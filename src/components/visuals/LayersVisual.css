@@ -52,3 +52,8 @@
   .layer-scene { height: 290px; }
   .pixel-bike { width: 210px; }
 }
+@media (max-width: 400px) {
+  .layer-scene { height: 240px; }
+  .pixel-bike { width: 176px; }
+  .part-bike { width: 260px; height: 156px; }
+}

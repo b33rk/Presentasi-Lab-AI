@@ -72,3 +72,8 @@
   .population { gap: 7px; height: 300px; }
   .candidate { width: 40px; }
 }
+@media (max-width: 400px) {
+  .population { gap: 5px; height: 250px; padding: 14px 6px; }
+  .candidate { width: 30px; }
+  .generation-control > div strong { font-size: 24px; }
+}

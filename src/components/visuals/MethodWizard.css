@@ -55,5 +55,12 @@
   .wizard-map span + span::before { width: 12px; }
   .wizard-question, .wizard-result { padding: 24px 18px; }
   .wizard-question > div { flex-direction: column; }
+  .wizard-question button, .wizard-result button { min-height: 46px; }
   .wizard-result dl { grid-template-columns: 1fr; }
+}
+@media (max-width: 400px) {
+  .wizard-panel { min-height: 340px; gap: 26px; }
+}
+@media (hover: none) {
+  .wizard-question button:active, .wizard-result button:active { background: var(--flame); border-color: var(--flame); }
 }

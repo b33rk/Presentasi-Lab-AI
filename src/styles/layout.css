@@ -184,7 +184,15 @@ footer a:hover { color: var(--flame); }
   h2 { font-size: 37px; }
   .lead { font-size: 18px; }
   blockquote { font-size: 24px; }
-  .visual-stage { min-height: 480px; }
+  .story-section { padding: 88px 16px 60px; gap: 32px; }
+  .visual-stage { min-height: 420px; }
+  .share-button { height: 34px; padding: 0 12px; font-size: 11px; }
   footer { flex-direction: column; gap: 10px; text-align: center; }
   .citation-popover { left: auto; right: 0; width: 220px; }
+}
+@media (max-width: 400px) {
+  body { font-size: 16px; }
+  h2 { font-size: 33px; }
+  .story-section { padding: 84px 13px 52px; }
+  .visual-stage { min-height: 360px; }
 }

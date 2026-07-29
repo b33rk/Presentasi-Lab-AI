@@ -47,6 +47,12 @@
 
 @media (max-width: 620px) {
   .quiz-panel article { padding: 22px 18px; }
+  .quiz-head strong { font-size: 19px; }
+  .quiz-panel h3 { font-size: 20px; }
   .quiz-options { flex-direction: column; }
-  .quiz-options button { width: 100%; }
+  .quiz-options button { width: 100%; min-height: 46px; font-size: 13px; }
+}
+/* Touch devices have no hover: give tapped options an active state. */
+@media (hover: none) {
+  .quiz-options button:active:not(:disabled) { background: var(--ink); color: var(--paper); }
 }

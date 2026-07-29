@@ -57,3 +57,11 @@
   .n1 { left: 0; } .n2 { right: 0; } .n3 { left: 0; top: 190px; } .n4 { right: 0; top: 190px; }
   .n5 { left: 0; bottom: 80px; } .n6 { right: 0; bottom: 80px; } .n7 { left: 36%; bottom: 25px; } .n8 { left: 36%; top: 70px; }
 }
+@media (max-width: 400px) {
+  .production-map { height: 500px; }
+  .model-core { width: 150px; height: 150px; }
+  .model-core strong { font-size: 16px; }
+  .prod-node { width: 78px; height: 64px; }
+  .prod-node span { font-size: 12px; }
+  .n3 { top: 170px; } .n4 { top: 170px; }
+}
