@@ -20,6 +20,7 @@ import TaskFitSorter from './components/visuals/TaskFitSorter.jsx';
 import RiskCards from './components/visuals/RiskCards.jsx';
 import ProductionVisual from './components/visuals/ProductionVisual.jsx';
 import MethodWizard from './components/visuals/MethodWizard.jsx';
+import FutureVisual from './components/visuals/FutureVisual.jsx';
 
 // Top-level composition. Content data lives in src/data, visuals in src/components/visuals.
 export default function App() {
@@ -105,7 +106,15 @@ export default function App() {
           <LearnMore section="production" />
         </Section>
 
-        <Section id="decision-tree" index={11} eyebrow="Inti takeaway" title="Mulai dari pertanyaan, bukan dari nama model" accent="success" visual={<MethodWizard />}>
+        <Section id="future" index={11} eyebrow="Arah ke depan" title="Semakin murah, semakin haus—ke mana arah AI?" accent="warning" visual={<FutureVisual />}>
+          <p className="lead">Biaya menjalankan model setara GPT-3.5 turun lebih dari <strong>280×</strong> dalam dua tahun, model terbuka pun makin menyusul model tertutup. <Citation ids={['R11']} /></p>
+          <p>Tetapi lebih efisien tidak berarti pemakaian menyusut. Ini <strong>Paradoks Jevons</strong>: ketika sesuatu menjadi murah, ia justru dipakai di mana-mana. Saat DeepSeek memangkas biaya awal 2025, permintaan dan belanja komputasi malah melonjak—bukan turun. <Citation ids={['R12', 'R14']} /></p>
+          <p>Karena itu batas nyata masa depan AI bukan cuma kepintaran model, melainkan energi dan tata kelola: IEA memproyeksikan konsumsi listrik pusat data lebih dari dua kali lipat menjadi sekitar <strong>945 TWh</strong> pada 2030—setara konsumsi listrik satu negara besar. <Citation ids={['R13']} /></p>
+          <blockquote>Efisiensi tidak mengurangi pemakaian—ia justru melipatgandakannya.</blockquote>
+          <LearnMore section="future" />
+        </Section>
+
+        <Section id="decision-tree" index={12} eyebrow="Inti takeaway" title="Mulai dari pertanyaan, bukan dari nama model" accent="success" visual={<MethodWizard />}>
           <p className="lead">Pilih sebuah masalah nyata. Jawab pertanyaan di samping untuk menemukan pendekatan awal.</p>
           <p>Metode dapat digabungkan: <strong>LLM memahami permintaan → optimizer mencari jadwal → aturan memvalidasi → monitoring mengawasi hasil.</strong> <Citation ids={['R1', 'R2', 'R3', 'R5', 'R6', 'R8', 'R10']} /></p>
           <blockquote>Mulailah dari metode paling sederhana yang memenuhi kebutuhan.</blockquote>

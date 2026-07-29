@@ -195,6 +195,33 @@ export const RESOURCES = {
     ],
   },
 
+  'future': {
+    intro: 'Efisiensi yang memicu pemakaian lebih besar—inilah Paradoks Jevons di era AI.',
+    items: [
+      {
+        title: 'Unfortunately, You Need to Know What the Jevons Paradox is',
+        by: 'Hank Green',
+        url: 'https://www.youtube.com/watch?v=a6sYYrLTOjQ',
+        kind: 'video',
+        note: 'Penjelasan populer kenapa efisiensi sering menaikkan—bukan menurunkan—pemakaian.',
+      },
+      {
+        title: 'The 2025 AI Index Report',
+        by: 'Stanford HAI',
+        url: 'https://hai.stanford.edu/ai-index/2025-ai-index-report',
+        kind: 'article',
+        note: 'Data terbaru: biaya inferensi anjlok, energi & emisi AI justru naik.',
+      },
+      {
+        title: 'From Efficiency Gains to Rebound Effects',
+        by: 'Luccioni, Strubell & Crawford',
+        url: 'https://arxiv.org/abs/2501.16548',
+        kind: 'article',
+        note: 'Kajian akademik efek rebound Jevons pada dampak lingkungan AI.',
+      },
+    ],
+  },
+
   'decision-tree': {
     intro: 'Mulai dari pertanyaan, bukan dari nama model—dua sumber ini membantu.',
     items: [

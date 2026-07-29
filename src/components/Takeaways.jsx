@@ -13,7 +13,7 @@ export default function Takeaways() {
   return (
     <section id="takeaways" className="takeaways story-section">
       <div className="takeaway-heading">
-        <span className="eyebrow"><span>12</span>Penutup</span>
+        <span className="eyebrow"><span>13</span>Penutup</span>
         <h2>Tiga pesan untuk mahasiswa</h2>
       </div>
       <div className="takeaway-grid">

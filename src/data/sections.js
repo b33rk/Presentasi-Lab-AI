@@ -10,6 +10,7 @@ export const SECTIONS = [
   ['llm', 'LLM', 1.4],
   ['risks', 'Risiko', 1.05],
   ['production', 'Produksi', 1.25],
+  ['future', 'Masa depan', 1.3],
   ['decision-tree', 'Memilih metode', 1.45],
   ['takeaways', 'Penutup', 1.5],
 ];
